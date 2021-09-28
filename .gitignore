@@ -5,3 +5,4 @@ test.puml
 out/*
 *.code-workspace
 .vscode/
+/target/
