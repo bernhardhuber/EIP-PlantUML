@@ -105,6 +105,7 @@ The following pattern are currently supported:
 ### Messaging Channels
 
 | Category           | Pattern                   | Macro                                 | Image                                     | Image URL |
+| --------           | -------                   | -----                                 | -----                                     | --------- |
 | Messaging Channels | Messaging Channel         | `MsgChannel(alias [,label])`          | ![](/sprites/queue.png)                   | |
 | Messaging Channels | Point-to-Point Channel    | `P2PChannel(alias [,label] )`         | ![](/sprites/queue.png)                   | |
 | Messaging Channels | Publish-Subscribe Channel | `PubSubChannel(alias [,label])`       | ![](/sprites/queue.png)                   | |
@@ -120,6 +121,7 @@ The following pattern are currently supported:
 ### System Management
 
 | Category          | Pattern          | Macro                           | Image                             | Image URL |
+| --------          | -------          | -----                           | -----                             | --------- |
 | System Management | Control Bus      | `ControlBus(alias)`             | ![](/sprites/control_bus.png)     | |
 | System Management |  Detour          | `Detour(alias [,label])`        | ![](/sprites/detour.png)          | |
 | System Management |  Wire Tap        | `WireTap(alias [,label])`       | ![](/sprites/wire_tab.png)        | |
