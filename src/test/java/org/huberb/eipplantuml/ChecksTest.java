@@ -1,7 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2021 berni3.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package org.huberb.eipplantuml;
 
@@ -30,13 +48,16 @@ import org.unix4j.Unix4j;
 public class ChecksTest {
 
     @Test
-    public void test_rlable() {
-        final File puml = createEIPElementsPumlFile();
-        final List<org.unix4j.line.Line> lineList = org.unix4j.Unix4j.grep("r_label", puml).toLineList();
+    public void test_rlabel() {
+        final File puml = new EIPPumlFileSupplier().createEIPElementsPumlFile();
+        final List<org.unix4j.line.Line> lineList = Unix4j.grep("r_label", puml).toLineList();
         final String m = "lines: " + lineList;
         assertEquals(0, lineList.size(), m);
     }
 
+    /**
+     * Test sprites puml, and sprites png files are in sync.
+     */
     @Test
     public void testSpritesPumlPngFiles() {
         final String pumlExt = ".puml";
@@ -70,12 +91,24 @@ public class ChecksTest {
         }
     }
 
+    /**
+     * Test syntax of puml files.
+     *
+     * @param puml
+     * @throws IOException
+     */
     @ParameterizedTest
     @MethodSource(value = "pumlFilesForSyntaxCheck")
     public void test_syntaxPumlFiles(File puml) throws IOException {
         assertPumlSyntax(puml);
     }
 
+    /**
+     * Test syntax of sprite puml files.
+     *
+     * @param puml
+     * @throws IOException
+     */
     @ParameterizedTest
     @MethodSource(value = "pumlSpritesForSyntaxCheck")
     public void test_syntax(File puml) throws IOException {
@@ -96,11 +129,23 @@ public class ChecksTest {
         assertEquals(false, syntaxResult.isError(), m);
     }
 
+    /**
+     * Parameterized test method source providing puml files.
+     *
+     * @return
+     */
     static Stream<File> pumlFilesForSyntaxCheck() {
-        List<File> list = Arrays.asList(createEIPElementsPumlFile(), createEIPPlantUmlPumlFile());
+        final List<File> list = Arrays.asList(
+                new EIPPumlFileSupplier().createEIPElementsPumlFile(),
+                new EIPPumlFileSupplier().createEIPPlantUmlPumlFile());
         return list.stream();
     }
 
+    /**
+     * Parameterized test method source providing sprite puml files.
+     *
+     * @return
+     */
     static Stream<File> pumlSpritesForSyntaxCheck() {
         final String spritesDirAsString = "./sprites";
         final List<File> spritesPumlFileList = Unix4j
@@ -111,29 +156,28 @@ public class ChecksTest {
         return spritesPumlFileList.stream();
     }
 
-    //---
-    static File createEIPElementsPumlFile() {
-        // TODO use maven: ${project.dir} System.getProperty("project.dir");
-        final String projectDirAsString = ".";
-        final File projectDirFile = new File(projectDirAsString);
-        assertEquals(true, projectDirFile.exists());
-        File puml = new File(projectDirFile, "EIP_Elements.puml");
-        final String m = "file: " + puml.toString();
-        assertEquals(true, puml.exists(), m);
-        assertEquals(true, puml.canRead(), m);
-        return puml;
-    }
+    static class EIPPumlFileSupplier {
+        //---
 
-    //---
-    static File createEIPPlantUmlPumlFile() {
-        // TODO use maven: ${project.dir} System.getProperty("project.dir");
-        final String projectDirAsString = "./dist";
-        final File projectDirFile = new File(projectDirAsString);
-        assertEquals(true, projectDirFile.exists());
-        File puml = new File(projectDirFile, "EIP-PlantUML.puml");
-        final String m = "file: " + puml.toString();
-        assertEquals(true, puml.exists(), m);
-        assertEquals(true, puml.canRead(), m);
-        return puml;
+        File createEIPElementsPumlFile() {
+            // TODO use maven: ${project.dir} System.getProperty("project.dir");
+            return createPumlFile(".", "EIP_Elements.puml");
+        }
+
+        //---
+        File createEIPPlantUmlPumlFile() {
+            // TODO use maven: ${project.dir} System.getProperty("project.dir");
+            return createPumlFile("./dist", "EIP-PlantUML.puml");
+        }
+
+        File createPumlFile(String dir, String puml) {
+            final File dirAsFile = new File(dir);
+            assertEquals(true, dirAsFile.exists());
+            final File pumlAsFile = new File(dirAsFile, puml);
+            final String m = "file: " + pumlAsFile.toString();
+            assertEquals(true, pumlAsFile.exists(), m);
+            assertEquals(true, pumlAsFile.canRead(), m);
+            return pumlAsFile;
+        }
     }
 }
