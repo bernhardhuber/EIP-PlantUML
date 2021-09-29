@@ -49,26 +49,26 @@ The following pattern are currently supported:
 | Message Construction | Command Message            | `CommandMessage(alias [,label])`                 | ![](/sprites/command_message.png)           |           |
 | Message Construction | Document Message           | `DocumentMessage(alias [,label])`                | ![](/sprites/document_message.png)          |           |
 | Message Construction | Event Message              | `EventMessage(alias [,label])`                   | ![](/sprites/event_message.png)             |           |
-| Message Construction | Request-Reply              | `RequestReply(alias [,label])`                   | ![](/sprites/request_reploy.png)            |           |
+| Message Construction | Request-Reply              | `RequestReply(alias [,label])`                   | ![](/sprites/request_reply.png)             |           |
 | Message Construction | Return Address             | `ReturnAddress(alias [,label])`                  | ![](/sprites/return_address.png)            |           |
 | Message Construction | Correlation Identifer      | `CorrelationIdentifier(alias [,label])`          | ![](/sprites/correlation_identifier.png)    |           |
 | Message Construction | Message Sequence           | `MessageSequence(alias [,label])`                | ![](/sprites/message_sequence.png)          |           |
 | Message Construction | Message Expiration         | `MessageExpiration(alias [,label])`              | ![](/sprites/message_expiration.png)        |           |
 | Message Construction | Format Indicator           | NA                                               |                                             |           |
-| Message Routing      | Pipes and Filters          | `Pipe(from, to)`                                 |                                             |           |
-| Message Routing      | Pipes and Filters          | `Filter(alias [,label])`                         | ![](/sprites/filter.png)                    |           |
+| Message Routing      | Pipes and Filters          | `Pipe(from, to)`                                 | connector                                   |           |
+| Message Routing      | Pipes and Filters          | `Filter(alias [,label])`                         | rectangle                                   |           |
 | Message Routing      | Message Router             | `MessageRouter(alias [,label])`                  | ![](/sprites/message_router.png)            |           |
 | Message Routing      | Message Filter             | `MessageFilter(alias [,label])`                  | ![](/sprites/message_filter.png)            |           |
-| Message Routing      | Dynamic Router             | `DynamicRouter(alias [,label], dynamicrulebase)` | ![](/sprites/dynamic_router.png)            |           |
+| Message Routing      | Dynamic Router             | `DynamicRouter(alias [,label], dynamicrulebase)` | rectangle                                   |           |
 | Message Routing      | Recipient List             | `RecipientList(alias [,label])`                  | ![](/sprites/recipient_list.png)            |           |
 | Message Routing      | Splitter                   | `Splitter(alias [,label])`                       | ![](/sprites/splitter.png)                  |           |
 | Message Routing      | Aggregator                 | `Aggregator(alias [,label])`                     | ![](/sprites/aggregator.png)                |           |
 | Message Routing      | Resequencer                | `Resequencer(alias [,label])`                    | ![](/sprites/resequencer.png)               |           |
-| Message Routing      | Composed Message Processor | `ComposedMessageProcessor(alias [,label])`       | ![](/sprites/compose_message_processor.png) |           |
+| Message Routing      | Composed Message Processor | `ComposedMessageProcessor(alias [,label])`       | rectangle                                   |           |
 | Message Routing      | Scatter-Gather             | TBD                                              |                                             |           |
 | Message Routing      | Routing Slip               | `RoutingSlip(alias [,label])`                    | ![](/sprites/routing_slip.png)              |           |
 | Message Routing      | Process Manager            | `ProcessManager(alias [,label])`                 | ![](/sprites/process_manager.png)           |           |
-| Message Routing      | Message Broker             | `MessageBroker(alias [,label])`                  | ![](/sprites/message_broker.png)            |           |
+| Message Routing      | Message Broker             | `MessageBroker(alias [,label])`                  | rectangle                                   |           |
 
 ### Message Transformation
 
@@ -80,7 +80,7 @@ The following pattern are currently supported:
 | Message Transformation | Data Enricher (also Content Enricher) | `DataEnricher(alias [,label], datasource)`| ![](/sprites/data_enricher.png)      |           |
 | Message Transformation | Content Filter                        | `ContentFilter(alias [,label])`           | ![](/sprites/content_filter.png)     |           |
 | Message Transformation | Claim Check                           | `Item(alias) <<$claim_check>>`, `Item(alias, "<$claim_check>")`, `Item(alias, "label <$claim_check>")` |                                      |           |
-| Message Transformation | Normalizer                            | `Normalizer(alias [,label])`              | ![](/sprites/normalizes.png)         |           |
+| Message Transformation | Normalizer                            | `Normalizer(alias [,label])`              | rectangle                            |           |
 | Message Transformation | Canonical Data Model                  | TBD
 
 ### Messaging Endpoints
@@ -93,57 +93,41 @@ The following pattern are currently supported:
 | Messaging Endpoint | Transactional Client                  | `TransactionalProducer(alias [,label])` | ![](/sprites/transactional_producer.png) |           |
 | Messaging Endpoint | Transactional Client                  | `TransactionalConsumer(alias [,label])` | ![](/sprites/transactional_consumer.png) |           |
 | Messaging Endpoint | Polling Consumer                      | `PollingConsumer(alias [,label])`       | ![](/sprites/polling_consumer.png)       |           |
-| Messaging Endpoint | Event-Driven Consumer                 | `EventDrivenConsumer(alias [,label])`   | ![](/sprites/event_driven_consumer.png)  |           |
+| Messaging Endpoint | Event-Driven Consumer                 | `EventDrivenConsumer(alias [,label])`   | ![](/sprites/eventdriven_consumer.png)   |           |
 | Messaging Endpoint | Competing Consumers                   | TBD                                     |                                          |           |
 | Messaging Endpoint | Message Dispatcher                    | `MessageDispatcher(alias [,label])`     | ![](/sprites/message_dispatcher.png)     |           |
 | Messaging Endpoint | Selective Consumer (Message Selector) | `SelectiveConsumer(alias [,label])`     | ![](/sprites/selective_consumer.png)     |           |
 | Messaging Endpoint | Durable Subscription                  | `DurableSubscriber(alias [,label])`     | ![](/sprites/durable_subscriber.png)     |           |
-| Messaging Endpoint | Durable Subscription                  | `NonDurableSubscriber(alias [,label])`  | ![](/sprites/non_durable_subscriber.png) |           |
+| Messaging Endpoint | Durable Subscription                  | `NonDurableSubscriber(alias [,label])`  | ![](/sprites/nondurable_subscriber.png)  |           |
 | Messaging Endpoint | Idempotent Receiver                   | TBD                                     |                                          |           |
 | Messaging Endpoint | Service Activator                     | `ServiceActivator(alias [,label])`      | ![](/sprites/service_activator.png)      |           |
 
 ### Messaging Channels
 
- * Messaging Channel
-    * `MsgChannel(alias [,label])`
-* Point-to-Point Channel
-    * `P2PChannel(alias [,label] )`
-* Publish-Subscribe Channel
-    * `PubSubChannel(alias [,label])`
- * Datatype Channel
-    * `DatatypeChannel(alias [,label])`
-* Invalid Message Channel
-    * `InvalidMsgChannel(alias [,label])`
-* Dead Letter Channel
-    * `DeadLetterChannel(alias [,label])`
-* Quaranteed Deliver
-    * TBD
-* Channel Adapter
-    * `ChannelAdapterLeft(alias [,label])`
-    * `ChannelAdapterRight(alias [,label])`
-* Messaging Bridge
-    * `MsgBridge(alias [,label])`
-* Message Bus
-    * `MsgBus(alias [,label])`
+| Category           | Pattern                   | Macro                                 | Image                                     | Image URL |
+| Messaging Channels | Messaging Channel         | `MsgChannel(alias [,label])`          | ![](/sprites/queue.png)                   | |
+| Messaging Channels | Point-to-Point Channel    | `P2PChannel(alias [,label] )`         | ![](/sprites/queue.png)                   | |
+| Messaging Channels | Publish-Subscribe Channel | `PubSubChannel(alias [,label])`       | ![](/sprites/queue.png)                   | |
+| Messaging Channels | Datatype Channel          | `DatatypeChannel(alias [,label])`     | ![](/sprites/datatype_channel.png)        | |
+| Messaging Channels | Invalid Message Channel   | `InvalidMsgChannel(alias [,label])`   | ![](/sprites/invalid_message_channel.png) | |
+| Messaging Channels | Dead Letter Channel       | `DeadLetterChannel(alias [,label])`   | ![](/sprites/dead_letter_queue.png)       | |
+| Messaging Channels | Quaranteed Deliver        | TBD                                   |                                           | |
+| Messaging Channels | Channel Adapter           | `ChannelAdapterLeft(alias [,label])`  | ![](/sprites/channel_adapter_left.png)    | |
+| Messaging Channels | Channel Adapter           | `ChannelAdapterRight(alias [,label])` | ![](/sprites/channel_adapter_right.png)   | |
+| Messaging Channels | Messaging Bridge          |`MsgBridge(alias [,label])`            | ![](/sprites/bridge.png)                  | |
+| Messaging Channels | Message Bus               | `MsgBus(alias [,label])`              | ![](/sprites/message_bug.png)             | |
 
-### System Managmenet
+### System Management
 
-* Control Bus
-    * `ControlBus(alias)`
-* Detour
-    * `Detour(alias [,label])`
-* Wire Tap
-    * `WireTap(alias [,label])`
-* Message History
-    * TBD
-* Message Store
-    * `MessageStore(alias [,label])`
-* Smart Proxy
-    * `SmartProxy(alias [,label])`
-* Test Message
-    * `TestMessage(alias [,label])`
-* Channel Purger
-    * `ChannelPurger(alias [,label])`
+| Category          | Pattern          | Macro                           | Image                             | Image URL |
+| System Management | Control Bus      | `ControlBus(alias)`             | ![](/sprites/control_bus.png)     | |
+| System Management |  Detour          | `Detour(alias [,label])`        | ![](/sprites/detour.png)          | |
+| System Management |  Wire Tap        | `WireTap(alias [,label])`       | ![](/sprites/wire_tab.png)        | |
+| System Management |  Message History | TBD                             | | |
+| System Management |  Message Store   | `MessageStore(alias [,label])`  | ![](/sprites/message_store.png)   | |
+| System Management |  Smart Proxy     |  `SmartProxy(alias [,label])`   | ![](/sprites/smart_proxy.png)     | |
+| System Management |  Test Message    | `TestMessage(alias [,label])`   | ![](/sprites/test_message.png)    | |
+| System Management |  Channel Purger  | `ChannelPurger(alias [,label])` | ![](/sprites/channel_purger.png)  | |
 
 ## Examples
 
