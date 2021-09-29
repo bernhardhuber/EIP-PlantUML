@@ -116,7 +116,7 @@ The following pattern are currently supported:
 | Messaging Channels | Channel Adapter           | `ChannelAdapterLeft(alias [,label])`  | ![](/sprites/channel_adapter_left.png)    | |
 | Messaging Channels | Channel Adapter           | `ChannelAdapterRight(alias [,label])` | ![](/sprites/channel_adapter_right.png)   | |
 | Messaging Channels | Messaging Bridge          |`MsgBridge(alias [,label])`            | ![](/sprites/bridge.png)                  | |
-| Messaging Channels | Message Bus               | `MsgBus(alias [,label])`              | ![](/sprites/message_bug.png)             | |
+| Messaging Channels | Message Bus               | `MsgBus(alias [,label])`              | ![](/sprites/message_bus.png)             | |
 
 ### System Management
 
@@ -124,7 +124,7 @@ The following pattern are currently supported:
 | --------          | -------          | -----                           | -----                             | --------- |
 | System Management | Control Bus      | `ControlBus(alias)`             | ![](/sprites/control_bus.png)     | |
 | System Management |  Detour          | `Detour(alias [,label])`        | ![](/sprites/detour.png)          | |
-| System Management |  Wire Tap        | `WireTap(alias [,label])`       | ![](/sprites/wire_tab.png)        | |
+| System Management |  Wire Tap        | `WireTap(alias [,label])`       | ![](/sprites/wire_tap.png)        | |
 | System Management |  Message History | TBD                             | | |
 | System Management |  Message Store   | `MessageStore(alias [,label])`  | ![](/sprites/message_store.png)   | |
 | System Management |  Smart Proxy     |  `SmartProxy(alias [,label])`   | ![](/sprites/smart_proxy.png)     | |
