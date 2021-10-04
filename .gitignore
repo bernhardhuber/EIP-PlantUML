@@ -6,3 +6,4 @@ out/*
 *.code-workspace
 .vscode/
 /target/
+/nb-configuration.xml
