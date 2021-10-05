@@ -41,7 +41,7 @@ Send(msg, channel2)
 ## Supported Pattern
 The following pattern are currently supported:
 
-###
+### Message Construction
 
 | Category             | Pattern                    | Macro                                            | Image                                       | Image URL |
 | --------             | -------                    | -----                                            | -----                                       | --------- |
@@ -55,9 +55,15 @@ The following pattern are currently supported:
 | Message Construction | Message Sequence           | `MessageSequence(alias [,label])`                | ![](/sprites/message_sequence.png)          |           |
 | Message Construction | Message Expiration         | `MessageExpiration(alias [,label])`              | ![](/sprites/message_expiration.png)        |           |
 | Message Construction | Format Indicator           | NA                                               |                                             |           |
+
+### Message Routing
+
+| Category             | Pattern                    | Macro                                            | Image                                       | Image URL |
+| --------             | -------                    | -----                                            | -----                                       | --------- |
 | Message Routing      | Pipes and Filters          | `Pipe(from, to)`                                 | connector                                   |           |
 | Message Routing      | Pipes and Filters          | `Filter(alias [,label])`                         | rectangle                                   |           |
 | Message Routing      | Message Router             | `MessageRouter(alias [,label])`                  | ![](/sprites/message_router.png)            |           |
+| Message Routing      | Content based Router       | `ContentBasedRouter(alias [,label])`             | ![](/sprites/content_based_router.png)            |           |
 | Message Routing      | Message Filter             | `MessageFilter(alias [,label])`                  | ![](/sprites/message_filter.png)            |           |
 | Message Routing      | Dynamic Router             | `DynamicRouter(alias [,label], dynamicrulebase)` | rectangle                                   |           |
 | Message Routing      | Recipient List             | `RecipientList(alias [,label])`                  | ![](/sprites/recipient_list.png)            |           |
@@ -72,8 +78,8 @@ The following pattern are currently supported:
 
 ### Message Transformation
 
-| Category            | Pattern                                | Macro                                       | Image                                | Image URL |
-| --------            | -------                                | -----                                       | -----                                | --------- |
+| Category               | Pattern                               | Macro                                     | Image                                | Image URL |
+| --------               | -------                               | -----                                     | -----                                | --------- |
 | Message Transformaton  | Message Translator                    | `MessageTranslator(alias [,label])`       | ![](/sprites/message_translator.png) |           |
 | Message Transformation | Envelope Wrapper                      | `Wrapper(alias [,label])`                 | ![](/sprites/wrapper.png)            |           |
 | Message Transformation | Envelope Wrapper                      | `Unwrapper(alias [,label])`               | ![](/sprites/wrapper.png)            |           |
