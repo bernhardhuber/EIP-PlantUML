@@ -86,7 +86,7 @@ The following pattern are currently supported:
 | Message Transformation | Data Enricher (also Content Enricher) | `DataEnricher(alias [,label], datasource)`| ![](/sprites/data_enricher.png)      |           |
 | Message Transformation | Content Filter                        | `ContentFilter(alias [,label])`           | ![](/sprites/content_filter.png)     |           |
 | Message Transformation | Claim Check                           | `Item(alias) <<$claim_check>>`, `Item(alias, "<$claim_check>")`, `Item(alias, "label <$claim_check>")` |                                      |           |
-| Message Transformation | Normalizer                            | `Normalizer(alias [,label])`              | rectangle                            |           |
+| Message Transformation | Normalizer                            | `Normalizer(alias [,label])`              | ![](/sprites/normalizer.png)         |           |
 | Message Transformation | Canonical Data Model                  | TBD
 
 ### Messaging Endpoints
