@@ -1,0 +1,165 @@
+= EIP PlantUML Cheatsheet
+A cheatsheet using plantuml modelling EIP diagrams.
+:toc:
+
+
+== Supported Pattern
+The following pattern are currently supported:
+
+=== Message Construction
+
+.EIP Message Construction
+[cols="1,1,2,1"]
+|===
+| Category             | Pattern                    | Macro                                            | Image
+| Message Construction | Message                    | `Message(alias [,label])`                        | image:sprites/message.png[]
+| Message Construction | Command Message            | `CommandMessage(alias [,label])`                 | image:sprites/command_message.png[]
+| Message Construction | Document Message           | `DocumentMessage(alias [,label])`                | image:sprites/document_message.png[]
+| Message Construction | Event Message              | `EventMessage(alias [,label])`                   | image:sprites/event_message.png[]
+| Message Construction | Request-Reply              | `RequestReply(alias [,label])`                   | image:sprites/request_reply.png[]
+| Message Construction | Return Address             | `ReturnAddress(alias [,label])`                  | image:sprites/return_address.png[]
+| Message Construction | Correlation Identifer      | `CorrelationIdentifier(alias [,label])`          | image:sprites/correlation_identifier.png[]
+| Message Construction | Message Sequence           | `MessageSequence(alias [,label])`                | image:sprites/message_sequence.png[]
+| Message Construction | Message Expiration         | `MessageExpiration(alias [,label])`              | image:sprites/message_expiration.png[]
+| Message Construction | Format Indicator           | NA                                               |
+|===
+
+=== Message Routing
+
+.EIP Message Routing
+[cols="1,1,2,1"]
+|===
+| Category             | Pattern                    | Macro                                            | Image
+| Message Routing      | Pipes and Filters          | `Pipe(from, to)`                                 | connector
+| Message Routing      | Pipes and Filters          | `Filter(alias [,label])`                         | rectangle
+| Message Routing      | Message Router             | `MessageRouter(alias [,label])`                  | image:sprites/message_router.png[]
+| Message Routing      | Content based Router       | `ContentBasedRouter(alias [,label])`             | image:sprites/content_based_router.png[]
+| Message Routing      | Message Filter             | `MessageFilter(alias [,label])`                  | image:sprites/message_filter.png[]
+| Message Routing      | Dynamic Router             | `DynamicRouter(alias [,label], dynamicrulebase)` | rectangle
+| Message Routing      | Recipient List             | `RecipientList(alias [,label])`                  | image:sprites/recipient_list.png[]
+| Message Routing      | Splitter                   | `Splitter(alias [,label])`                       | image:sprites/splitter.png[]
+| Message Routing      | Aggregator                 | `Aggregator(alias [,label])`                     | image:sprites/aggregator.png[]
+| Message Routing      | Resequencer                | `Resequencer(alias [,label])`                    | image:sprites/resequencer.png[]
+| Message Routing      | Composed Message Processor | `ComposedMessageProcessor(alias [,label])`       | rectangle
+| Message Routing      | Scatter-Gather             | TBD                                              |
+| Message Routing      | Routing Slip               | `RoutingSlip(alias [,label])`                    | image:sprites/routing_slip.png[]
+| Message Routing      | Process Manager            | `ProcessManager(alias [,label])`                 | image:sprites/process_manager.png[]
+| Message Routing      | Message Broker             | `MessageBroker(alias [,label])`                  | rectangle
+|===
+
+=== Message Transformation
+
+.EIP Message Transformation
+[cols="1,1,2,1"]
+|===
+| Category               | Pattern                               | Macro                                     | Image
+| Message Transformaton  | Message Translator                    | `MessageTranslator(alias [,label])`       | image:sprites/message_translator.png[]
+| Message Transformation | Envelope Wrapper                      | `Wrapper(alias [,label])`                 | image:sprites/wrapper.png[]
+| Message Transformation | Envelope Wrapper                      | `Unwrapper(alias [,label])`               | image:sprites/wrapper.png[]
+| Message Transformation | Data Enricher (also Content Enricher) | `DataEnricher(alias [,label], datasource)`| image:sprites/data_enricher.png[]
+| Message Transformation | Content Filter                        | `ContentFilter(alias [,label])`           | image:sprites/content_filter.png[]
+| Message Transformation | Claim Check                           | `Item(alias) <<$claim_check>>`, `Item(alias, "<$claim_check>")`, `Item(alias, "label <$claim_check>")` |
+| Message Transformation | Normalizer                            | `Normalizer(alias [,label])`              | image:sprites/normalizer.png[]
+| Message Transformation | Canonical Data Model                  | TBD
+|===
+
+=== Messaging Endpoints
+
+.EIP Message Endpoints
+[cols="1,1,2,1"]
+|===
+| Category           | Pattern                               | Macro                                   | Image
+| Messaging Endpoint | Message Endpoint                      | `MessageEndpoint(alias [,label])`       | image:sprites/message_endpoint.png[]
+| Messaging Endpoint | Messaging Gateway                     | `MessagingGateway(alias [,label])`      | image:sprites/messaging_gateway.png[]
+| Messaging Endpoint | Messaging Mapper                      | `MessagingMapper(alias [,label])`       | image:sprites/messaging_mapper.png[]
+| Messaging Endpoint | Transactional Client                  | `TransactionalProducer(alias [,label])` | image:sprites/transactional_producer.png[]
+| Messaging Endpoint | Transactional Client                  | `TransactionalConsumer(alias [,label])` | image:sprites/transactional_consumer.png[]
+| Messaging Endpoint | Polling Consumer                      | `PollingConsumer(alias [,label])`       | image:sprites/polling_consumer.png[]
+| Messaging Endpoint | Event-Driven Consumer                 | `EventDrivenConsumer(alias [,label])`   | image:sprites/eventdriven_consumer.png[]
+| Messaging Endpoint | Competing Consumers                   | TBD                                     |
+| Messaging Endpoint | Message Dispatcher                    | `MessageDispatcher(alias [,label])`     | image:sprites/message_dispatcher.png[]
+| Messaging Endpoint | Selective Consumer (Message Selector) | `SelectiveConsumer(alias [,label])`     | image:sprites/selective_consumer.png[]
+| Messaging Endpoint | Durable Subscription                  | `DurableSubscriber(alias [,label])`     | image:sprites/durable_subscriber.png[]
+| Messaging Endpoint | Durable Subscription                  | `NonDurableSubscriber(alias [,label])`  | image:sprites/nondurable_subscriber.png[]
+| Messaging Endpoint | Idempotent Receiver                   | TBD                                     |
+| Messaging Endpoint | Service Activator                     | `ServiceActivator(alias [,label])`      | image:sprites/service_activator.png[]
+|===
+
+=== Messaging Channels
+
+.EIP Message Channels
+[cols="1,1,2,1"]
+|===
+| Category           | Pattern                   | Macro                                 | Image
+| Messaging Channels | Messaging Channel         | `MsgChannel(alias [,label])`          | image:sprites/queue.png[]
+| Messaging Channels | Point-to-Point Channel    | `P2PChannel(alias [,label] )`         | image:sprites/queue.png[]
+| Messaging Channels | Publish-Subscribe Channel | `PubSubChannel(alias [,label])`       | image:sprites/queue.png[]
+| Messaging Channels | Datatype Channel          | `DatatypeChannel(alias [,label])`     | image:sprites/datatype_channel.png[]
+| Messaging Channels | Invalid Message Channel   | `InvalidMsgChannel(alias [,label])`   | image:sprites/invalid_message_channel.png[]
+| Messaging Channels | Dead Letter Channel       | `DeadLetterChannel(alias [,label])`   | image:sprites/dead_letter_queue.png[]
+| Messaging Channels | Quaranteed Deliver        | TBD                                   |
+| Messaging Channels | Channel Adapter           | `ChannelAdapterLeft(alias [,label])`  | image:sprites/channel_adapter_left.png[]
+| Messaging Channels | Channel Adapter           | `ChannelAdapterRight(alias [,label])` | image:sprites/channel_adapter_right.png[]
+| Messaging Channels | Messaging Bridge          | `MsgBridge(alias [,label])`           | image:sprites/bridge.png[]
+| Messaging Channels | Message Bus               | `MsgBus(alias [,label])`              | image:sprites/message_bus.png[]
+|===
+
+=== System Management
+
+.EIP System Management
+[cols="1,1,2,1"]
+|===
+| Category          | Pattern          | Macro                           | Image
+| --------          | -------          | -----                           | -----
+| System Management | Control Bus      | `ControlBus(alias)`             | image:sprites/control_bus.png[]
+| System Management |  Detour          | `Detour(alias [,label])`        | image:sprites/detour.png[]
+| System Management |  Wire Tap        | `WireTap(alias [,label])`       | image:sprites/wire_tap.png[]
+| System Management |  Message History | TBD                             |
+| System Management |  Message Store   | `MessageStore(alias [,label])`  | image:sprites/message_store.png[]
+| System Management |  Smart Proxy     | `SmartProxy(alias [,label])`    | image:sprites/smart_proxy.png[]
+| System Management |  Test Message    | `TestMessage(alias [,label])`   | image:sprites/test_message.png[]
+| System Management |  Channel Purger  | `ChannelPurger(alias [,label])` | image:sprites/channel_purger.png[]
+|===
+
+
+== Example
+
+A simple EIP PlantUML example, consisting of
+a message, and two message channels.
+
+.EIP Plantuml Source
+[source,plantuml]
+----
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/EIP-PlantUML/main/dist/EIP-PlantUML.puml
+
+LAYOUT_LEFT_RIGHT()
+
+MsgChannel(channel1, "Channel 1")
+MsgChannel(channel2, "Channel 2")
+Message(msg, "Message")
+
+Send(channel1, msg)
+Send(msg, channel2)
+
+@enduml
+----
+
+.EIP PlantUML Diagram
+[plantuml, target=eip_1, format=svg]
+....
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/EIP-PlantUML/main/dist/EIP-PlantUML.puml
+
+LAYOUT_LEFT_RIGHT()
+
+MsgChannel(channel1, "Channel 1")
+MsgChannel(channel2, "Channel 2")
+Message(msg, "Message")
+
+Send(channel1, msg)
+Send(msg, channel2)
+
+@enduml
+....
+
